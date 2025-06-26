@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🛰️ AI Classifier - Real Satellite Image Classifier</title>
+    <title>🛰️ AI Image Classifier - Real Satellite Image Classifier</title>
     <link rel="stylesheet" href="css/style.css">
 
     <!-- ONNX Runtime Web for real AI inference -->
@@ -12,8 +12,11 @@
 <body>
     <div class="container">
         <header>
-            <h1>🛰️ AI Satellite Image Classification System</h1>
+            <h1>🛰️ AI Image Classifier - Real Satellite Image Classifier</h1>
             <p>Real AI-powered satellite image classification • 89.6% Accuracy • ResNet-34</p>
+            <div class="developer-credit">
+                <p>Developed by <a href="https://www.linkedin.com/in/shammunul/" target="_blank" rel="noopener">Shammunul Islam</a></p>
+            </div>
             <div class="model-status" id="modelStatus">
                 <span class="status-indicator" id="statusIndicator">🔄</span>
                 <span id="statusText">Loading AI model...</span>
@@ -28,8 +31,9 @@
                         <h3>Upload Satellite Image</h3>
                         <p>Upload any satellite or aerial image for AI classification</p>
                         <p class="format-info">Supports: JPG, PNG, WebP • Recommended: 224x224px or larger</p>
-                        <input type="file" id="imageInput" accept="image/*" hidden>
-                        <!-- FIXED: Removed onclick to prevent double triggering -->
+                        <!-- COMPLETELY FIXED: Hidden file input with NO conflicting handlers -->
+                        <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                        <!-- COMPLETELY FIXED: Button with NO onclick attribute -->
                         <button class="upload-btn" id="uploadBtn" disabled>
                             <span id="uploadBtnText">Loading AI...</span>
                         </button>
@@ -40,11 +44,11 @@
                 <div class="sample-section">
                     <h4>Try Sample Images:</h4>
                     <div class="sample-images">
-                        <!-- FIXED: Added event.preventDefault() to prevent event bubbling -->
-                        <button class="sample-btn" onclick="event.preventDefault(); event.stopPropagation(); loadSampleImage('forest')">🌲 Forest</button>
-                        <button class="sample-btn" onclick="event.preventDefault(); event.stopPropagation(); loadSampleImage('farm')">🌾 Farm</button>
-                        <button class="sample-btn" onclick="event.preventDefault(); event.stopPropagation(); loadSampleImage('city')">🏙️ City</button>
-                        <button class="sample-btn" onclick="event.preventDefault(); event.stopPropagation(); loadSampleImage('water')">🌊 Water</button>
+                        <!-- COMPLETELY FIXED: No onclick attributes, pure JavaScript event handling -->
+                        <button class="sample-btn" data-sample="forest">🌲 Forest</button>
+                        <button class="sample-btn" data-sample="farm">🌾 Farm</button>
+                        <button class="sample-btn" data-sample="city">🏙️ City</button>
+                        <button class="sample-btn" data-sample="water">🌊 Water</button>
                     </div>
                 </div>
             </div>
@@ -52,7 +56,7 @@
             <div class="results-section" id="resultsSection" style="display: none;">
                 <div class="image-preview">
                     <img id="previewImage" alt="Uploaded satellite image">
-                    <button class="back-btn" onclick="resetApp()">← Upload Another</button>
+                    <button class="back-btn" id="backBtn">← Upload Another</button>
                 </div>
 
                 <div class="prediction-results">
@@ -104,16 +108,20 @@
                 <span>🌐 Browser AI</span>
             </div>
             <p>Real AI running in your browser • No data sent to servers • Privacy-first</p>
+            <div class="developer-footer">
+                <p>Developed by <a href="https://www.linkedin.com/in/shammunul/" target="_blank" rel="noopener">Shammunul Islam</a> | 
+                   <a href="https://github.com/shammun/image-classification-ai" target="_blank" rel="noopener">View Source</a></p>
+            </div>
         </footer>
     </div>
 
     <!-- Error modal -->
     <div class="modal" id="errorModal" style="display: none;">
         <div class="modal-content">
-            <span class="close" onclick="closeErrorModal()">&times;</span>
+            <span class="close" id="closeModal">&times;</span>
             <h3>⚠️ Error</h3>
             <p id="errorMessage"></p>
-            <button onclick="closeErrorModal()">OK</button>
+            <button id="okBtn">OK</button>
         </div>
     </div>
 

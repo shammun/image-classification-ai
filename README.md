@@ -1,4 +1,4 @@
-# 🛰️ Real AI Crop Monitoring - Satellite Image Classifier
+# 🛰️ Real AI Image Classification - Satellite Image Classifier
 
 A complete AI-powered web application that runs satellite image classification directly in the browser using ONNX.js and a trained ResNet-34 model.
 
