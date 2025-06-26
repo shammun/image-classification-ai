@@ -1,0 +1,471 @@
+/* Real AI Crop Monitoring App - Enhanced CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+/* Developer Credit */
+.developer-credit {
+    margin-bottom: 20px;
+}
+
+.developer-credit p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.developer-credit a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(255,255,255,0.7);
+    transition: all 0.3s ease;
+}
+
+.developer-credit a:hover {
+    opacity: 1;
+    border-bottom: 1px solid white;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+/* Model Status */
+.model-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.2);
+    padding: 10px 20px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.status-indicator {
+    font-size: 1.2rem;
+    animation: pulse 2s infinite;
+}
+
+.model-status.ready .status-indicator {
+    animation: none;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* Main Content */
+main {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* Upload Section */
+.upload-area {
+    border: 3px dashed #667eea;
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+    background: linear-gradient(145deg, #f8f9ff, #ffffff);
+}
+
+.upload-area:hover,
+.upload-area.drag-over {
+    border-color: #764ba2;
+    background: linear-gradient(145deg, #f0f2ff, #f8f9ff);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.format-info {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 10px 0;
+}
+
+.upload-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.upload-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.upload-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Sample Images */
+.sample-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.sample-section h4 {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.sample-images {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.sample-btn {
+    background: linear-gradient(145deg, #f0f2ff, #ffffff);
+    border: 2px solid #667eea;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.sample-btn:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Results Section */
+.results-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.image-preview {
+    position: relative;
+}
+
+.image-preview img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.back-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.back-btn:hover {
+    background: white;
+    transform: translateY(-1px);
+}
+
+/* Predictions */
+.prediction-results h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.top-prediction {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.prediction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.prediction-label {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.confidence-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.confidence-bar {
+    height: 8px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.confidence-fill {
+    height: 100%;
+    background: white;
+    border-radius: 4px;
+    transition: width 0.8s ease;
+}
+
+/* All Predictions */
+.all-predictions h4 {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.prediction-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 12px;
+    background: linear-gradient(145deg, #f8f9ff, #ffffff);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.prediction-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.2);
+}
+
+.prediction-item .prediction-label {
+    min-width: 140px;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.prediction-item .confidence-bar {
+    flex: 1;
+    height: 6px;
+    background: #e0e0e0;
+    margin: 0 15px;
+}
+
+.prediction-item .confidence-fill {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.prediction-item .confidence-text {
+    min-width: 50px;
+    text-align: right;
+    font-weight: 600;
+    color: #667eea;
+    font-size: 0.9rem;
+}
+
+/* Model Info */
+.model-info {
+    margin-top: 20px;
+    padding: 15px;
+    background: linear-gradient(145deg, #f0f2ff, #f8f9ff);
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+}
+
+.model-info p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Loading Section */
+.loading-section {
+    text-align: center;
+    padding: 40px;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    color: white;
+}
+
+.tech-info {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.tech-info span {
+    background: rgba(255,255,255,0.2);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+/* Error Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 500px;
+    margin: 20px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #999;
+}
+
+.close:hover {
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .results-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .upload-area {
+        padding: 30px 20px;
+    }
+
+    .sample-images {
+        gap: 8px;
+    }
+
+    .sample-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .tech-info {
+        gap: 8px;
+    }
+
+    .tech-info span {
+        padding: 4px 10px;
+        font-size: 0.8rem;
+    }
+}
